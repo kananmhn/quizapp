@@ -1,12 +1,12 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const button = cva(
-  'flex items-center justify-center rounded-xl cursor-pointer select-none disabled:bg-brand-star-dust disabled:text-white disabled:cursor-not-allowed',
+  'flex items-center text-dark justify-center rounded-xl cursor-pointer select-none disabled:bg-brand-star-dust disabled:text-dark disabled:cursor-not-allowed',
   {
     variants: {
       intent: {
         primary: [
-          'bg-brand-bittersweet text-white hover:bg-brand-bittersweet-dark transition-colors duration-200 ease-in-out',
+          'bg-brand-paris-black text-white hover:bg-brand-bittersweet-dark transition-colors duration-200 ease-in-out',
         ],
         secondary: [
           'bg-brand-cerulean-blue text-white hover:bg-brand-cerulean-blue-dark transition-colors duration-200 ease-in-out',

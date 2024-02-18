@@ -33,11 +33,9 @@ This is a dummy product site that needs help adding new features and maturing th
 ### Setup
 
 1. Clone the repository with `git clone` or fork the repository.
-2. Install pnpm Globally: You can install pnpm globally on your system using npm or Yarn. Run one of the following commands:
-   `npm install -g pnpm`
-3. Run `pnpm i` to install dependencies.
-4. Run `pnpm dev` to start application.
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run `pnpm i` to install dependencies.
+3. Run `pnpm dev` to start application.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Codespaces is also available and is pre-configured with node and pnpm.
 

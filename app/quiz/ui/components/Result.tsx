@@ -1,10 +1,12 @@
 'use client';
+import { useState, useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import { Button } from '../components/Button';
+import {Quiz} from './Quiz';
 
 import confettiAnimation from '../assets/animations/confetti.json';
-import { DonutChart } from './DonutChart';
+
 
 interface ResultProps {
   results: {
@@ -15,11 +17,17 @@ interface ResultProps {
   totalQuestions: number;
 }
 export const Result = ({ results, totalQuestions }: ResultProps) => {
-  const { correctAnswers, wrongAnswers, secondsUsed } = results;
+  const { correctAnswers } = results;
+  const [showQuiz, setShowQuiz] = useState(false);
 
   const handleRetry = () => {
-    // Restart quiz
-    window.location.reload();
+    const divElement = document.getElementById('answers');
+    if (divElement && divElement.parentNode) {
+      divElement.style.display = 'none';
+      // Remove the "answers" div from its parent node
+      divElement.parentNode.removeChild(divElement);
+    }
+    setShowQuiz(true);
   };
 
   return (
@@ -27,25 +35,27 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
       key={'result'}
       variants={{
         initial: {
-          background: '#FF6A66',
+          background: '#ccc',
           clipPath: 'circle(0% at 50% 50%)',
         },
         animate: {
-          background: '#FF6A66',
+          background: '#ccc',
           clipPath: 'circle(100% at 50% 50%)',
         },
       }}
-      className='w-full h-full flex justify-center p-5'
+      className='w-full h-half flex justify-center p-5'
       initial='initial'
       animate='animate'
       exit='exit'
       transition={{ duration: 0.5 }}
     >
       <div className='flex flex-col text-black font-bold text-[32px] text-center w-full'>
-        <h1 className='font-bold text-base text-white'>QuizApp</h1>
+    
+        {/* <h1 className='font-bold text-base text-white'>QuizApp</h1> */}
 
         {/* Result Box */}
-        <div className='mt-6 flex-1 bg-white border border-brand-light-gray rounded-2xl flex flex-col items-center py-7 px-2 '>
+        <div  id='answers' className='mt-6 flex-1 bg-white border border-brand-light-gray rounded-2xl flex flex-col items-center py-7 px-2 '>
+          <div></div>
           <Lottie
             animationData={confettiAnimation}
             loop={false}
@@ -57,55 +67,21 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
           <span className='text-brand-midnight font-medium text-[40px]'>{`${correctAnswers}/${totalQuestions}`}</span>
           <p className='text-brand-midnight text-sm font-normal mt-1'>correct answers</p>
 
-          {/* Charts */}
-          <div className='flex items-center mt-4 space-x-4'>
-            <DonutChart
-              className='w-36 h-36'
-              total={60 * totalQuestions}
-              used={secondsUsed}
-              type={'time'}
-              data={[
-                {
-                  label: 'Time Used',
-                  value: secondsUsed,
-                  color: '#374CB7',
-                },
-                {
-                  label: 'Time Left',
-                  value: 60 * totalQuestions - secondsUsed,
-                  color: '#F0F0F0',
-                },
-              ]}
-            />
-
-            <DonutChart
-              className='w-36 h-36'
-              type={'questions'}
-              total={totalQuestions}
-              used={correctAnswers}
-              data={[
-                {
-                  label: 'Correct',
-                  value: correctAnswers,
-                  color: '#56C490',
-                },
-                {
-                  label: 'Wrong',
-                  value: wrongAnswers,
-                  color: '#FF6A66',
-                },
-              ]}
-            />
-          </div>
         </div>
 
         {/* Retry Button */}
-        <div className='mt-auto'>
+        <div >
+        {!showQuiz ? (
+        <div>
+          {/* Your existing result view */}
           <Button intent={'secondary'} size='small' block className='mt-6' onClick={handleRetry}>
-            Try Again
+            Restart Quiz
           </Button>
         </div>
-      </div>
+      ) : (
+        <Quiz />
+      )} </div>
+        </div>
     </motion.div>
   );
 };

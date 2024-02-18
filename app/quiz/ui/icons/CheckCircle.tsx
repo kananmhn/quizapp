@@ -22,7 +22,7 @@ export const CheckCircle = () => (
         <path d='M8 12L11 15L17 9' stroke='black' strokeWidth='4' strokeLinecap='round' strokeLinejoin='round' />
       </mask>
       <g mask='url(#mask0_4_4138)'>
-        <path d='M0 0H24V24H0V0Z' fill='#FF6A66' />
+        <path d='M0 0H24V24H0V0Z' fill='#000' />
       </g>
     </g>
     <defs>

@@ -1,6 +1,3 @@
-import Image from 'next/image';
-// import { CheckCircle } from ".//ui/icons/CheckCircle";
-// import { importantToKnow } from "@/ui/content/content";
 import { CheckCircle } from '../icons/CheckCircle';
 import { importantToKnow } from '../content/content';
 
@@ -13,13 +10,6 @@ interface IntroProps {
 export const Intro = ({ onGetStartedClick }: IntroProps) => {
   return (
     <div className='px-5 py-8 flex-1 w-full lg:max-w-4xl mx-auto flex flex-col overflow-hidden'>
-      <Image
-        src='/doodles.svg'
-        width={343}
-        height={413}
-        className='absolute -bottom-10 right-0 z-0 object-cover pointer-events-none w-[343px] h-[413px] lg:w-[500px] lg:h-[600px]'
-        alt='Doodles Illustration'
-      />
       <div className='w-full flex flex-col flex-1 items-center z-10'>
         <h1 className='text-brand-cerulean-blue font-bold text-[32px] sm:text-4xl'>QuizApp</h1>
 

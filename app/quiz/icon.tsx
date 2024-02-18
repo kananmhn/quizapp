@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
@@ -12,17 +12,7 @@ export default function Icon() {
   return new ImageResponse(
     (
       <div
-        style={{
-          fontSize: 24,
-          background: `linear-gradient(to bottom, #FF6A66 0%, #FF6A66 50%, #374CB7 50%, #374CB7 100%)`,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          borderRadius: '50%',
-        }}
+       
       >
         {/* Question mark */}
         <svg
