@@ -5,8 +5,12 @@ const button = cva(
   {
     variants: {
       intent: {
-        primary: ['bg-default-black text-white hover:bg-feedback-red-dark transition-colors duration-200 ease-in-out'],
-        secondary: ['bg-result-blue text-white hover:bg-result-blue-dark transition-colors duration-200 ease-in-out'],
+        primary: [
+          'bg-brand-paris-black text-white hover:bg-brand-bittersweet-dark transition-colors duration-200 ease-in-out',
+        ],
+        secondary: [
+          'bg-brand-cerulean-blue text-white hover:bg-brand-cerulean-blue-dark transition-colors duration-200 ease-in-out',
+        ],
       },
       size: {
         small: ['text-sm', 'h-[52px]', 'px-2'],

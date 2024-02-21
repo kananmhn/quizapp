@@ -11,9 +11,7 @@ export const contentType = 'image/png';
 export default function Icon() {
   return new ImageResponse(
     (
-      <div
-       
-      >
+      <div>
         {/* Question mark */}
         <svg
           xmlns='http://www.w3.org/2000/svg'
