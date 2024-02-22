@@ -2,35 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .h-viewport {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
-button {
-  @apply inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md text-gray-700 bg-gray-50 hover:border-blue-300 cursor-pointer;
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
-primary-button {
-  @apply max-w-xs w-full bg-blue-500 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-white hover:bg-blue-600 focus:outline-none;
-}
-
-link {
-  @apply text-sm text-blue-600 hover:text-blue-500;
-}
-
-.bg-brand-paris-green {
-  --tw-bg-opacity: 1;
-  background-color: rgb(86 196 144 / var(--tw-bg-opacity));
-}
-
-.bg-brand-bittersweet {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 106 102 / var(--tw-bg-opacity));
-}
-
-.bg-brand-cerulean-blue {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 76 183 / var(--tw-bg-opacity));
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
